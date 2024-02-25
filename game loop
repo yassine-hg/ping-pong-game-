@@ -1,0 +1,41 @@
+# Main game loop
+while True:
+    window.update()
+
+    # Move the ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy) 
+
+    #border cheking 
+    if ball.ycor() > 340:
+        ball.sety(340)
+        ball.dy *= -1
+
+    if ball.ycor() < -340:
+        ball.sety(-340)
+        ball.dy *= -1
+
+    if ball.xcor() > 440:
+        ball.goto(0 , 0)
+        ball.dx *= -1
+        score_a += 1
+        pen.clear()
+        pen.write("Player A : {}    Player B : {}".format(score_a , score_b) ,align="center" , font=("Bohemian Typewriter " , 24, "normal"))
+
+
+    if ball.xcor() < -440:
+        ball.goto(0 , 0)
+        ball.dx *= -1
+        score_b += 1
+        pen.clear()
+        pen.write("Player A : {}    Player B : {}".format(score_a , score_b) ,align="center" , font=("Bohemian Typewriter " , 24, "normal"))
+
+    #paddle and ball 
+    if (ball.xcor() > 390 and ball.xcor() < 405) and (ball.ycor() < paddle_b.ycor() + 60 and ball.ycor() > paddle_b.ycor() - 60):
+        ball.setx(390)
+        ball.dx *= -1
+    
+    if (ball.xcor() < -390 and ball.xcor() < -405) and (ball.ycor() < paddle_a.ycor() + 60 and ball.ycor() > paddle_a.ycor() - 60):
+        ball.setx(-390)
+        ball.dx *= -1
+    
