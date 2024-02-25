@@ -1,0 +1,50 @@
+import turtle
+import time
+
+window = turtle.Screen()
+window.title("Pong Ping")
+window.setup(width=900, height=700)
+window.tracer(0)
+window.bgcolor("white")
+
+# paddle A
+paddle_a = turtle.Turtle()
+paddle_a.speed(0)
+paddle_a.shape("square")
+paddle_a.color("black")
+paddle_a.shapesize(stretch_wid=6, stretch_len=0.5)
+paddle_a.penup()
+paddle_a.goto(-410, 0)
+
+#score
+score_a = 0
+score_b = 0
+
+# paddle B
+paddle_b = turtle.Turtle()
+paddle_b.speed(0)
+paddle_b.shape("square")
+paddle_b.color("black")
+paddle_b.shapesize(stretch_wid=6, stretch_len=0.5)
+paddle_b.penup()
+paddle_b.goto(410, 0)
+
+# ball
+ball = turtle.Turtle()
+ball.shapesize(stretch_len=1.5, stretch_wid=1.5)
+ball.speed(0)
+ball.shape("circle")
+ball.color("black")
+ball.penup()
+ball.goto(0, 0)
+ball.dy = 0.15
+ball.dx = 0.15
+
+#pen 
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("black")
+pen.penup()
+pen.hideturtle()
+pen.goto(0 , 300)
+pen.write("Player A : 0    Player B : 0" ,align="center" , font=("Bohemian Typewriter " , 24, "normal"))
